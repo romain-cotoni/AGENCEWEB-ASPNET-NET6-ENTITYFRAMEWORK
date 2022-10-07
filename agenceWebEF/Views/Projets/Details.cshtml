@@ -1,0 +1,171 @@
+﻿@model agenceWebEF.Models.Projet
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Tab links -->
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'projet')" id="defaultOpen">Projet</button>
+    <button class="tablinks" onclick="openTab(event, 'hebergement')">Hébergement</button>
+    <button class="tablinks" onclick="openTab(event, 'maintenance')">Maintenance</button>
+    <button class="tablinks" onclick="openTab(event, 'referencement')">Réferencement</button>
+    <button class="tablinks" onclick="openTab(event, 'documents')">Documents</button>
+    <button class="tablinks" onclick="openTab(event, 'developpement')">Développement</button>
+    <button class="tablinks" onclick="openTab(event, 'maintenance')">Maintenance</button>
+</div>
+
+<!-- Tab content -->
+<div id="projet" class="tabcontent">
+    <h3 class="text-center">Projet</h3>
+    <hr />
+    <div class="row">
+        <dl class="col-2"></dl>
+        <dl class="col-4">
+            @Html.HiddenFor(model => model.IdEtp)
+            <div class="row me-1 ms-2">
+                <dt class="col-5 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.NomPrj)
+                </dt>
+                <dd class="col-7">
+                    @Html.DisplayFor(model => model.NomPrj)
+                </dd>
+            </div>
+            <div class="row me-1 mb-2">
+                <dt class="col-5 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.TypePrj)
+                </dt>
+                <dd class="col-7">
+                    @Html.DisplayFor(model => model.TypePrj)
+                </dd>
+            </div>
+            <div class="row me-1 mb-2">
+                <dt class="col-5 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.TypeTarifPrj)
+                </dt>
+                <dd class="col-7">
+                    @Html.DisplayFor(model => model.TypeTarifPrj)
+                </dd>
+            </div>
+            <div class="row me-1 mb-2">
+                <dt class="col-5 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.TFixePrj)
+                </dt>
+                <dd class="col-7">
+                    @Html.DisplayFor(model => model.TFixePrj)
+                </dd>
+            </div>
+            <div class="row mb-2">
+                <dt class="col-5 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.NbHeurePrj)
+                </dt>
+                <dd class="col-7">
+                    @Html.DisplayFor(model => model.NbHeurePrj)
+                </dd>
+            </div>
+            <div class="row mb-2">
+                <dt class="col-5 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.THorairePrj)
+                </dt>
+                <dd class="col-7">
+                    @Html.DisplayFor(model => model.THorairePrj) €
+                </dd>
+            </div>
+            <div class="row me-1 mb-2">
+                <dt class="col-5 text-end ps-0 pe-3">
+                    @Html.DisplayNameFor(model => model.IdEtp)
+                </dt>
+                <dd class="col-7">
+                    @Html.DisplayFor(model => model.IdEtp)
+                </dd>
+            </div>
+        </dl>
+        <dl class="col-6">
+            <div class="row me-1 my-2">
+                <dt class="col-3 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.DebutPrj)
+                </dt>
+                <dd class="col-9">
+                    @Html.DisplayFor(model => model.DebutPrj)
+                </dd>
+            </div>
+            <div class="row me-1 mb-2">
+                <dt class="col-3 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.FinPrj)
+                </dt>
+                <dd class="col-9">
+                    @Html.DisplayFor(model => model.FinPrj)
+                </dd>
+            </div>
+            <div class="row me-1 mb-2">
+                <dt class="col-3 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.DescripPrj)
+                </dt>
+                <dd class="col-9 height-min-1 border border-secondary">
+                    @Html.DisplayFor(model => model.DescripPrj)
+                </dd>
+            </div>
+            <div class="row me-1 mb-2">
+                <dt class="col-3 text-end pe-3">
+                    @Html.DisplayNameFor(model => model.InfoPrj)
+                </dt>
+                <dd class="col-9 height-min-1 border border-secondary">
+                    @Html.DisplayFor(model => model.InfoPrj)
+                </dd>
+            </div>
+        </dl>
+        <dl class="col-0"></dl>
+    </div>
+</div>
+
+
+<div id="hebergement" class="tabcontent">
+    <h3 class="text-center">Hébergement</h3>
+</div>
+
+<div id="maintenance" class="tabcontent">
+    <h3 class="text-center">Maintenance</h3>
+</div>
+
+<div id="referencement" class="tabcontent">
+    <h3 class="text-center">Réferencement</h3>
+</div>
+
+<div id="documents" class="tabcontent">
+    <h3 class="text-center">Documents</h3>
+</div>
+
+<div id="developpement" class="tabcontent">
+    <h3 class="text-center">Développement</h3>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-info btn-size-1" asp-action="Edit"   asp-route-id="@Model?.IdPrj">Modifier</a>
+    <a class="btn btn-info btn-size-1" asp-action="Delete" asp-route-id="@Model?.IdPrj">Effacer</a>
+</div>
+
+<!--
+<div class="row">
+    <div class="col-6 border border-secondary">
+        
+    </div>
+    <div class="col-6 border border-secondary">
+        <div class="row mx-1 my-2">
+            <div class="col-2 fw-bold text-center">
+                @Html.DisplayNameFor(model => model.DescripPrj)
+            </div>
+            <div class="col-10 height-min-1 border border-secondary">
+                @Html.DisplayFor(model => model.DescripPrj)
+            </div>
+        </div>
+        <div class="row mx-1 my-1">
+            <div class="col-2">
+                @Html.DisplayNameFor(model => model.InfoPrj)
+            </div>
+            <div class="col-10 height-min-1 border border-secondary">
+                @Html.DisplayFor(model => model.InfoPrj)
+            </div>
+        </div>
+    </div>
+</div>
+-->

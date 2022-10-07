@@ -1,0 +1,53 @@
+﻿@model IEnumerable<agenceWebEF.Models.Projet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Liste des projets</h1>
+
+<p><a asp-action="Create">Créer un nouveau projet</a></p>
+
+@*<div class="row mx-0">
+    <div class="col-3 border border-secondary"></div>
+    <div class="col-6 border border-secondary">
+
+    </div>
+    <div class="col-3 border border-secondary"></div>
+</div>
+*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>Nombre d'heures</th>
+            <th>Date début</th>
+            <th>date fin</th>
+            @*<th>@Html.DisplayNameFor(model => model.IdEtpNavigation)</th>*@
+            <th></th>
+            <th></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NomPrj)</td>
+                <td>@Html.DisplayFor(modelItem => item.TypePrj)</td>           
+                <td>@Html.DisplayFor(modelItem => item.NbHeurePrj)</td>            
+                <td>@Html.DisplayFor(modelItem => item.DebutPrj)</td>
+                <td>@Html.DisplayFor(modelItem => item.FinPrj)</td>            
+                @*<td>@Html.HiddenFor(modelItem => item.IdEtpNavigation.IdEtp)</td>*@
+                <td>
+                    <a class="btn btn-secondary" asp-action="Edit"    asp-route-id="@item.IdPrj">Edit</a>
+                    <a class="btn btn-success"   asp-action="Details" asp-route-id="@item.IdPrj">Details</a>
+                    <a class="btn btn-alert"     asp-action="Delete"  asp-route-id="@item.IdPrj">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

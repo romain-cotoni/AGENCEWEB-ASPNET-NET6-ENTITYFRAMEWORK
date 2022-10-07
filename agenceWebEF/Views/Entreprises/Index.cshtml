@@ -1,0 +1,47 @@
+﻿@model IEnumerable<agenceWebEF.Models.Entreprise>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomEtp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiretEtp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActiviteEtp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomEtp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiretEtp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActiviteEtp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEtp">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEtp">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEtp">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

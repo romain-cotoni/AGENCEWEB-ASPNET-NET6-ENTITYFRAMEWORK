@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Rechercher";
+}
+
+<div class="row mx-0">
+    <div class="col-10"></div>
+    <div class="col-2">
+        <form asp-controller="Entreprises" asp-action="GetCreate">
+            <button class="btn btn-secondary mt-5 btnSize" type="submit">Ajouter un client</button>
+        </form>
+    </div>
+</div>
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <h4>Recherche une entreprise cliente</h4>
+    <form asp-controller="Rechercher" asp-action="findEntrepriseByName">
+        <div class="row mt-5">
+            <span class="col-4"></span>
+            <label class="col-2 border border-secondary bg-info text-end pe-5" for="nom">Raison Sociale</label>
+            <input class="col-2" type="text" list="nom" name="nom" autocomplete="off"/>
+            <datalist id="nom">
+                @foreach (var item in ViewBag.datalistnom)
+                {
+                    <option value=@item.NomEtp/>
+                }
+            </datalist>
+            <span class="col-4"></span>
+        </div>
+        <div class="row mt-2">
+            <span class="col-4"></span>
+            <label class="col-2 border border-secondary bg-info text-end pe-5" for="siret">Siret</label>
+            <input class="col-2" type="text" list="siret" name="siret" autocomplete="off"/>
+            <datalist id="siret">
+                @foreach (var item in ViewBag.datalistnom)
+                {
+                    <option value=@item.SiretEtp/>
+                }
+            </datalist>
+            <span class="col-4"></span>
+        </div>
+        <button class="btn btn-secondary mt-2 btnSize" type="submit">Chercher</button>
+    </form>   
+
+    <div class="border-top mt-5"></div>
+   
+
+    @if (Model != null)
+    {
+        <div class="row mt-2  text-center border border-center">
+            <span class="col-2 fs-4 fw-bold"></span>
+            <span class="col-2 fs-4 fw-bold">Id</span>
+            <span class="col-2 fs-4 fw-bold">Entreprise</span>
+            <span class="col-2 fs-4 fw-bold">Siret</span>
+            <span class="col-2 fs-4 fw-bold">Domaine</span>
+            <span class="col-2"></span>
+        </div>
+        @foreach (var entreprise in Model)
+        {
+            <div class="row mt-2 text-center border border-center">
+                <span class="col-2 pt-2"></span>
+                <span class="col-2 pt-2"> @entreprise.IdEtp</span>
+                <span class="col-2 pt-2">@entreprise.NomEtp</span>
+                <span class="col-2 pt-2">@entreprise.SiretEtp</span>
+                <span class="col-2 pt-2">@entreprise.ActiviteEtp</span>
+                <span class="col-2">                    
+                    <a asp-action="Client" asp-controller="Entreprises" asp-route-id="@entreprise.IdEtp" class="btn btn-secondary">Details</a>
+                    <a asp-action="Delete"  asp-controller="Entreprises"  asp-route-id="@entreprise.IdEtp" class="btn btn-secondary">Delete</a>
+                </span>                    
+            </div>
+        }
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model agenceWebEF.Models.Entreprise
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <p class="display-6">Entreprise</p>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomEtp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomEtp)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SiretEtp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SiretEtp)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ActiviteEtp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ActiviteEtp)
+        </dd>
+        <p class="display-6">Projects</p>
+        @foreach (var item in Model.Projets)
+        {
+            <dd class="col-sm-2">
+                @Html.DisplayFor(modelItem => item.IdPrj)
+            </dd>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(modelItem => item.NomPrj)
+            </dd>
+            <dd class="col-sm-2">
+                <a asp-action="Details" asp-controller="Projets" asp-route-id=@Html.DisplayFor(modelItem => item.IdPrj)>Edit</a>
+            </dd>
+        }
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdEtp">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

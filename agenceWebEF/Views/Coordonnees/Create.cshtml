@@ -1,0 +1,67 @@
+﻿@model agenceWebEF.Models.Coordonnee
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<hr />
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h1 class="display-6">Ajouter des coordonnées</h1>
+        <form asp-action="PostCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TelCrd" class="control-label">Téléphone</label>
+                <input asp-for="TelCrd" class="form-control" />
+                <span asp-validation-for="TelCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailCrd" class="control-label">Email</label>
+                <input asp-for="EmailCrd" class="form-control" />
+                <span asp-validation-for="EmailCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdresseCrd" class="control-label">Adresse</label>
+                <input asp-for="AdresseCrd" class="form-control" />
+                <span asp-validation-for="AdresseCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresse2Crd" class="control-label">Adresse 2</label>
+                <input asp-for="Adresse2Crd" class="form-control" />
+                <span asp-validation-for="Adresse2Crd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostalCrd" class="control-label">Code postal</label>
+                <input asp-for="PostalCrd" class="form-control" />
+                <span asp-validation-for="PostalCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VilleCrd" class="control-label">Ville</label>
+                <input asp-for="VilleCrd" class="form-control" />
+                <span asp-validation-for="VilleCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaysCrd" class="control-label">Pays</label>
+                <input asp-for="PaysCrd" class="form-control" />
+                <span asp-validation-for="PaysCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEtp" class="control-label"></label>
+                <input asp-for="IdEtp" class ="form-control" asp-items="ViewBag.IdEtp"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPrs" class="control-label"></label>
+                <select asp-for="IdPrs" class ="form-control" asp-items="ViewBag.IdPrs"></select>
+            </div>
+            <div class="form-group mt-1">
+                <input type="submit" value="Create" class="btn btn-info" />
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

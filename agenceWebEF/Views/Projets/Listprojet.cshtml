@@ -1,0 +1,59 @@
+﻿@*@model IEnumerable<agenceWebEF.Models.Projet>*@
+@model List<agenceWebEF.Models.Projet> 
+
+@{
+    ViewData["Title"] = "Liste des projets";
+}
+
+<h1>Listprojet</h1>
+
+<p>
+    @if (Model.Count > 0)
+    {
+        var el = Model.Last();
+        <form asp-action="GetCreate" asp-route-IdEtp=@el.IdEtp>
+           <input type="submit" value="Créer un nouveau projet" class="btn btn-info"/>
+        </form>
+        @*<a asp-action="GetCreate" asp-route-IdEtp="@el.IdEtp">Créer un nouveau projet</a>*@
+    }
+</p>
+<table class="table w-100 border border-secondary">
+    <thead class="w-100 border border-secondary">
+        <tr class="w-100">
+            <th>
+                Nom de projet
+            </th>
+            <th>
+                type de projet
+            </th>
+            <th>
+                <!--espace pour les boutons-->
+            </th>
+        </tr>
+    </thead>
+    <tbody class="border border-secondary">
+    @if (Model.Last().NomPrj != null)
+    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.IdEtp)
+                </td>*@
+                <td>                
+                    @Html.DisplayFor(modelItem => item.NomPrj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypePrj)
+                </td>                
+                <td>
+                    <a class="btn btn-secondary" asp-action="Edit"    asp-route-IdPrj="@item.IdPrj">Editer</a>
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-IdPrj="@item.IdPrj">Details</a>
+                    <a class="btn btn-secondary" asp-action="Delete"  asp-route-IdPrj="@item.IdPrj">Effacer</a>
+                </td>
+            </tr>
+        }
+
+    }
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@model agenceWebEF.Models.Entreprise
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'projet')" id="defaultOpen">Projet</button>
+  <button class="tablinks" onclick="openTab(event, 'hebergement')">Hébergement</button>
+  <button class="tablinks" onclick="openTab(event, 'maintenance')">Maintenance</button>
+  <button class="tablinks" onclick="openTab(event, 'referencement')">Réferencement</button>
+  <button class="tablinks" onclick="openTab(event, 'documents')">Documents</button>
+  <button class="tablinks" onclick="openTab(event, 'developpement')">Développement</button>
+  <button class="tablinks" onclick="openTab(event, 'maintenance')">Maintenance</button>
+</div>
+
+<!-- Tab content -->
+<div id="projet" class="tabcontent">
+  <h3>Projet</h3>
+</div>
+
+<div id="hebergement" class="tabcontent">
+  <h3>Hébergement</h3>
+</div>
+
+<div id="maintenance" class="tabcontent">
+  <h3>Maintenance</h3>
+</div>
+
+<div id="referencement" class="tabcontent">
+  <h3>Referencement</h3>
+</div>
+
+<div id="documents" class="tabcontent">
+  <h3>Documents</h3>
+</div>
+
+<div id="developpement" class="tabcontent">
+  <h3>Développement</h3>
+</div>
+

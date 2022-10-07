@@ -1,0 +1,68 @@
+﻿@model agenceWebEF.Models.Coordonnee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-3">
+        
+    </div>
+    <div class="col-6">
+        <h1 class="display-6">Modifier les coordonnées</h1>
+        <form asp-action="PostEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdEtp" />
+            <input type="hidden" asp-for="IdCrd" />
+            <div class="form-group">
+                <label asp-for="TelCrd" class="control-label">Téléphone</label>
+                <input asp-for="TelCrd" class="form-control" />
+                <span asp-validation-for="TelCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailCrd" class="control-label">Email</label>
+                <input asp-for="EmailCrd" class="form-control" />
+                <span asp-validation-for="EmailCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdresseCrd" class="control-label">Adresse</label>
+                <input asp-for="AdresseCrd" class="form-control" />
+                <span asp-validation-for="AdresseCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresse2Crd" class="control-label">Adresse 2</label>
+                <input asp-for="Adresse2Crd" class="form-control" />
+                <span asp-validation-for="AdresseCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VilleCrd" class="control-label">Ville</label>
+                <input asp-for="VilleCrd" class="form-control" />
+                <span asp-validation-for="VilleCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostalCrd" class="control-label">Code postal</label>
+                <input asp-for="PostalCrd" class="form-control" />
+                <span asp-validation-for="PostalCrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaysCrd" class="control-label">Pays</label>
+                <input asp-for="PaysCrd" class="form-control" />
+                <span asp-validation-for="PaysCrd" class="text-danger"></span>
+            </div>           
+            <div class="form-group mt-1">
+                <input type="submit" value="Update" class="btn btn-secondary" />
+            </div>
+        </form>        
+    </div>
+    <div class="col-3"></div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
